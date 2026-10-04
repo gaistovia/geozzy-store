@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/*
+  GEOZZY STORE design tokens.
+  Palette is taken from the logo: warm gold monogram (#EDB92B) and deep olive-brown wordmark (#5A4A10).
+  Text on gold is always dark (white on gold fails contrast).
+*/
+@theme {
+  --font-sans: "DM Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Cormorant Garamond Variable", Georgia, "Times New Roman", serif;
+
+  --color-gold-50: #fff9e6;
+  --color-gold-100: #fdefbd;
+  --color-gold-200: #fbe08a;
+  --color-gold-300: #f6cf58;
+  --color-gold-400: #f1c23e;
+  --color-gold-500: #edb92b;
+  --color-gold-600: #c99412;
+  --color-gold-700: #96700f;
+  --color-gold-800: #735610;
+  --color-gold-900: #5a4a10;
+
+  --color-whatsapp: #128c4a;
+  --color-whatsapp-hover: #0e7a40;
+  --color-danger: #b42318;
+  --color-success: #1a7f4b;
+}
+
+:root {
+  --background: #fbf9f4;
+  --foreground: #1c1708;
+  --muted: #f2eddf;
+  --muted-foreground: #6a6350;
+  --border: #e3dbc4;
+  --card: #ffffff;
+  --ring: #c99412;
+}
+
+[data-theme="dark"] {
+  --background: #100d06;
+  --foreground: #f5f0e1;
+  --muted: #1b170c;
+  --muted-foreground: #a8a08a;
+  --border: #2d281a;
+  --card: #16130a;
+  --ring: #edb92b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-ring: var(--ring);
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-gold-300);
+  color: #1c1708;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
