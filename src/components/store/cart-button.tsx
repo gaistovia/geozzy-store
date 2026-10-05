@@ -11,7 +11,7 @@ export function CartButton({ href, label }: { href: string; label: string }) {
     <Link
       href={href}
       aria-label={shown > 0 ? `${label} (${shown})` : label}
-      className="relative flex size-10 items-center justify-center rounded-full transition-colors hover:bg-muted"
+      className="relative flex size-9 items-center justify-center rounded-full transition-colors hover:bg-muted sm:size-10"
     >
       <CartIcon />
       {shown > 0 && (

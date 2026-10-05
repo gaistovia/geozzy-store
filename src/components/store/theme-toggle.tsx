@@ -27,7 +27,7 @@ export function ThemeToggle({ label }: { label: string }) {
       type="button"
       onClick={toggle}
       aria-label={label}
-      className="flex size-10 items-center justify-center rounded-full transition-colors hover:bg-muted"
+      className="flex size-9 items-center justify-center rounded-full transition-colors hover:bg-muted sm:size-10"
     >
       {dark ? <SunIcon /> : <MoonIcon />}
     </button>

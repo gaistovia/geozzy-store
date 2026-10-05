@@ -35,8 +35,8 @@ export function Header({
       {announcement && (
         <div className="bg-gold-900 px-4 py-2 text-center text-sm text-gold-50">{announcement}</div>
       )}
-      <header data-theme="dark" className="sticky top-0 z-40 border-b border-border bg-background/95 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/85">
-        <div className="relative mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6">
+      <header data-theme="dark" className="sticky top-0 z-40 border-b border-border bg-background text-foreground">
+        <div className="relative mx-auto flex h-16 max-w-7xl items-center gap-1.5 px-3 sm:gap-3 sm:px-6">
           <MobileMenu
             links={links}
             openLabel={dict.nav.menu}
@@ -47,7 +47,7 @@ export function Header({
           </MobileMenu>
 
           <Link href={localePath(locale, "/")} aria-label={settings.storeName} className="shrink-0">
-            <Logo variant="wordmark" height={34} priority />
+            <Logo variant="wordmark" height={34} priority className="[&_img]:h-7 [&_img]:w-auto max-[359px]:[&_img]:h-5 sm:[&_img]:h-[34px]" />
           </Link>
 
           <nav aria-label={dict.nav.primary} className="ml-6 hidden items-center gap-1 lg:flex">
@@ -62,7 +62,7 @@ export function Header({
             ))}
           </nav>
 
-          <div className="ml-auto flex items-center gap-1.5">
+          <div className="ml-auto flex items-center gap-0.5 sm:gap-1.5">
             <SearchForm locale={locale} dict={dict} id="search-desktop" className="mr-2 hidden w-60 lg:block" />
             <LanguageToggle locale={locale} label={dict.common.language} />
             <ThemeToggle label={dict.nav.theme} />

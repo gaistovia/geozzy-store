@@ -34,7 +34,7 @@ export function LanguageToggle({
             aria-label={names[target]}
             aria-current={active ? "true" : undefined}
             className={cn(
-              "rounded-full px-3 py-1 text-xs font-semibold transition-colors",
+              "rounded-full px-2.5 py-1 text-xs font-semibold transition-colors max-[359px]:px-2 sm:px-3",
               active
                 ? "bg-gold-500 text-[#1c1708]"
                 : inverted

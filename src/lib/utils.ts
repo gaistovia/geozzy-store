@@ -1,6 +1,7 @@
 import clsx, { type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-/** Join class names, skipping falsy values. */
+/** Join class names, skipping falsy values. When two classes conflict (e.g. two background colours) the LAST one wins. */
 export function cn(...inputs: ClassValue[]): string {
-  return clsx(inputs);
+  return twMerge(clsx(inputs));
 }

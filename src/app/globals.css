@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
 /*
+  "dark:" classes must follow OUR theme switch (data-theme="dark"), not the visitor's computer setting.
+  Without this, a visitor whose computer is in dark mode would see broken half-dark styling on the light site.
+*/
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
   GEOZZY STORE design tokens.
   Palette is taken from the logo: warm gold monogram (#EDB92B) and deep olive-brown wordmark (#5A4A10).
   Text on gold is always dark (white on gold fails contrast).

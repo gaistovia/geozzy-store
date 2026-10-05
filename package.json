@@ -1,6 +1,6 @@
 {
   "name": "geozzy-store",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "description": "GEOZZY STORE - WhatsApp-ordering e-commerce site with an owner admin dashboard",
   "scripts": {
@@ -20,6 +20,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "server-only": "^0.0.1",
+    "tailwind-merge": "^3.7.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
