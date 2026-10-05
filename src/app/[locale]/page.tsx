@@ -137,24 +137,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         ]}
       />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border bg-[#100d06] text-[#f5f0e1]">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-20">
+      {/* Hero: light and warm in light mode (the header above it is the black logo bar) */}
+      <section className="relative overflow-hidden border-b border-border bg-background text-foreground">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_75%_at_88%_15%,rgba(237,185,43,0.26),transparent_70%),radial-gradient(40%_55%_at_0%_100%,rgba(237,185,43,0.12),transparent_70%)]"
+        />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-16">
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">{tagline}</p>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold-700 dark:text-gold-400">{tagline}</p>
             <h1 className="font-display text-5xl font-semibold leading-[1.02] sm:text-6xl lg:text-7xl">{headline}</h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#cfc7b0]">{description}</p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">{description}</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href={localePath(locale, "/shop")} className={buttonVariants({ size: "lg" })}>
                 {primaryCta}
               </Link>
               <Link
                 href={categories.length > 0 ? "#categories" : localePath(locale, "/new-arrivals")}
-                className={buttonVariants({
-                  variant: "outline",
-                  size: "lg",
-                  className: "border-white/25 text-white hover:bg-white/10",
-                })}
+                className={buttonVariants({ variant: "outline", size: "lg", className: "border-foreground/30 hover:bg-foreground/5" })}
               >
                 {secondaryCta}
               </Link>
@@ -163,12 +163,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
           <div className="relative mx-auto w-full max-w-md lg:max-w-none">
             {heroImage ? (
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl shadow-black/20 ring-1 ring-black/5 lg:aspect-square">
                 <Image src={heroImage} alt={d.home.heroImageAlt} fill priority sizes="(min-width: 1024px) 40vw, 90vw" className="object-cover" />
               </div>
             ) : heroProducts.length > 0 ? (
-              <div className="relative aspect-[4/5]">
-                <div className="absolute inset-0 right-10 overflow-hidden rounded-3xl bg-white/5">
+              <div className="relative aspect-[4/5] lg:aspect-square">
+                <div className="absolute inset-0 right-10 overflow-hidden rounded-3xl bg-muted shadow-2xl shadow-black/20 ring-1 ring-black/5">
                   <ProductImage
                     path={heroProducts[0]?.primary_image_path}
                     alt={heroProducts[0]?.name ?? ""}
@@ -177,13 +177,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   />
                 </div>
                 {heroProducts[1] && (
-                  <div className="absolute bottom-0 right-0 aspect-square w-2/5 overflow-hidden rounded-2xl border-4 border-[#100d06] bg-white/5">
+                  <div className="absolute bottom-0 right-0 aspect-square w-2/5 overflow-hidden rounded-2xl border-4 border-background bg-muted shadow-xl shadow-black/20">
                     <ProductImage path={heroProducts[1].primary_image_path} alt={heroProducts[1].name} sizes="20vw" />
                   </div>
                 )}
               </div>
             ) : (
-              <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black">
+              <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-3xl bg-black shadow-2xl shadow-black/20 lg:aspect-square">
                 <Image src="/brand/logo-mark.png" alt="" width={661} height={604} priority className="w-4/5" />
               </div>
             )}
